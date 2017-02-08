@@ -1,4 +1,5 @@
 ﻿using DotNetOpenAuth.OAuth2;
+using Newtonsoft.Json;
 
 namespace ExactOnline.Client.OAuth
 {
@@ -11,6 +12,7 @@ namespace ExactOnline.Client.OAuth
 
 		public string RefreshToken { get; set; }
 
-		public IAuthorizationState AuthorizationState { get; set; }
+        [JsonConverter(typeof(AuthorizationStateConverter))]
+        public IAuthorizationState AuthorizationState { get; set; }
 	}
 }
